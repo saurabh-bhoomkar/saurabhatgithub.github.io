@@ -1,0 +1,2352 @@
+@charset "UTF-8";
+
+/* •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+   ••  High School Programming League                               ••
+   ••  Updated: September 2010                                      ••
+   ••                                                               ••
+   ••  Front-end code by http://riddle.pl                           ••
+   •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••   
+   
+   0. RESET
+   1. GLOBAL
+   2. MASTER HEADER
+      2.1 Name and logo
+      2.2 Dashboard
+      2.3 Language picker
+  
+   3. LAYOUT
+   4. CONTENT
+      4.1 Buttons
+      4.2 More
+      4.3 Carousel
+      4.4 Panes
+      4.5 Logo
+   
+   5. SECTIONS
+      5.1 Main Section
+      5.2 Section Body
+      5.3 Single Section
+      5.4 Section Excerpt
+      5.5 Section Nested
+      5.6 Section Widget
+  
+   6. SPECIFIC
+      6.1 Intro
+      6.2 Timeline
+      6.3 Recommendations
+      6.4 Top 5
+      6.5 Recent Activity
+      6.6 Sponsors and Affiliates
+      6.7 Section adjustments
+    
+   7. FOOTER
+   
+---------------------------------------------------------------------- */
+
+/* 0. RESET
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+a, abbr, address, article, aside, audio, b, blockquote, body, canvas, 
+caption, cite, code, dd, del, details, dfn, div, dl, dt, embed, fieldset,
+figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup,
+html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, 
+object, ol, p, pre, q, samp, section, small, span, strong, summary, 
+table, tbody, td, tfoot, th, thead, time, tr, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-style: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, canvas, details, figcaption, figure, footer, header, 
+hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+a, ins, del {
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+caption, th {
+  text-align: left;
+}
+
+q:after, q:before {
+  content: "";
+}
+
+/* 1. GLOBAL
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+body {
+  font: normal 12px/17px "Arial", sans-serif;
+  background-color: #eee;
+  color: #333;
+}
+
+a {
+  color: #0090f6;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+}
+
+.outline {
+  display: none;
+}
+
+.columns:after,
+.timeline:after,
+.sign-in > div:after,
+.section > footer:after,
+.recommendations p:after,
+.master-header > div:after,
+.info > section > div:after {
+  clear: both;
+  content: "";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.honorary-board p,
+.info > section p {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.sign-in label[for]:after,
+.register h1:after,
+.info > section h1:after {
+  content: ":";
+}
+
+.red{
+	color: red;
+}
+
+.clear{
+	clear: both;
+}
+
+/* 2. MASTER HEADER
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+.master-header {
+  background: #013265 url("i/master-header.png") repeat-x;
+  color: #fff;
+}
+
+.master-header > div {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.master-header hgroup,
+.master-header aside {
+  float: left;
+}
+
+.master-header hgroup {
+  width: 696px;
+  padding-top: 31px;
+  margin-left: -78px;
+}
+
+.master-header aside {
+  width: 326px;
+  padding: 13px 20px 16px 16px;
+  background: #06c url("i/master-header-aside.png") repeat-x;
+}
+
+.master-header a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.master-header .button {
+  text-decoration: none;
+}
+
+/* 2.1 =Name and logo
+====================================================================== */
+
+.master-header hgroup h1,
+.master-header hgroup h2 {
+  height: 76px;
+  font-size: 24px;
+  line-height: 28px;
+  position: relative;
+}
+
+.master-header hgroup h1 {
+  width: 570px;
+  padding-left: 78px;
+  float: left;
+}
+
+.master-header hgroup h2 {
+  float: right;
+  width: 185px;
+  margin-right: 25px;
+}
+
+.master-header hgroup span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /*background: url("i/hspl-logo.png") no-repeat;*/
+}
+
+.master-header hgroup h2 span {
+  background-position: -458px 0;
+}
+
+/* 2.2 =Dashboard
+====================================================================== */
+
+.master-header aside {
+  color: #fff;
+}
+
+.master-header aside > .primary {
+  width: 203px;
+}
+
+.master-header aside > .secondary {
+  padding-left: 12px;
+  width: 111px;
+}
+
+.sign-in input {
+  margin: 0;
+}
+
+.sign-in > div {
+  padding-bottom: 6px;
+}
+
+.sign-in label {
+  cursor: pointer;
+}
+
+.sign-in label[for] {
+  cursor: default;
+  float: left;
+  width: 60px;
+  line-height: 24px;
+  padding-right: 5px;
+}
+
+.sign-in input[type="text"],
+.sign-in input[type="password"] {
+  float: right;
+  width: 128px;
+  height: 24px;
+  padding: 0 5px;
+  background: #fff;
+  color: #333;
+  border: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+  box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+  /* prevent background spill in WebKit when using border-radius */
+  -webkit-background-clip: padding-box;
+}
+
+.chrome .sign-in input[type="text"],
+.chrome .sign-in input[type="password"] {
+  border: 2px solid #0087ed;
+}
+
+.sign-in .submit {
+  padding: 4px 0 0;
+}
+
+.sign-in .submit .button {
+  float: right;
+}
+
+.register h1 {
+  padding-top: 6px;
+  float: left;
+}
+
+.register ul {
+  float: right;
+}
+
+.register ul li {
+  clear: both;
+}
+
+.register ul .forum {
+  text-align: right;
+}
+
+.register .forum {
+  margin-top: 5px;
+}
+
+.register .button {
+  margin-bottom: 6px;
+}
+
+.register .button > span {
+  min-width: 50px;
+}
+
+.register .button > span + span {
+  min-width: 0;
+}
+
+.register .button {
+  /* prevent any wrapping in IE7 and Opera 10.61 */
+  min-width: 87px;
+}
+
+/* 2.3 = Language
+====================================================================== */
+
+.language {
+  padding: 4px 20px 4px 0;
+  text-align: right;
+}
+
+/* 3. LAYOUT
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+.main {
+  background: #f3f3f3 url("i/main.png") repeat-x;
+  padding: 13px 16px 26px 16px;
+  width: 948px;
+  margin: 0 auto;
+}
+
+.columns > .primary,
+.columns > .secondary {
+  float: left;
+}
+
+.columns-main > .primary {
+  width: 700px;
+  float: right;
+}
+
+.columns-main > .secondary {
+  width: 236px;
+  padding-right: 12px;
+  float: left;
+  margin-bottom: 100px;
+}
+
+/* 4. CONTENT
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+/* 4.1 =Buttons
+====================================================================== */
+
+.button,
+.button > span {
+  height: 25px;
+  line-height: 25px;
+}
+
+button.button {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button > span {
+  background: url("i/buttons.png") no-repeat 0 -29px;
+  padding: 0 11px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -1px;
+  float: left;
+  -webkit-font-smoothing: antialiased;
+}
+
+.button > span + span {
+  width: 15px;
+  padding: 0;
+  background-position: 100% -29px;
+}
+
+.button:active {
+  position: relative;
+  top: 1px;
+}
+
+.button:hover > span,
+.button:focus > span {
+  background-position: 0 -93px;
+}
+
+.button:hover > span + span,
+.button:focus > span + span {
+  background-position: 100% -93px;
+}
+
+.button-small,
+.button-small > span {
+  line-height: 19px;
+  height: 19px;
+}
+
+.button-small > span {
+  background-position: 0 0;
+  font-size: 12px;
+  padding: 0 9px 0 12px;
+}
+
+.button-small > span + span {
+  width: 15px;
+  padding: 0;
+  background-position: 100% 0;
+}
+
+.button-small:hover > span,
+.button-small:focus > span {
+  background-position: 0 -64px;
+}
+
+.button-small:hover > span + span,
+.button-small:focus > span + span {
+  background-position: 100% -64px;
+}
+
+/* 4.2 =More
+====================================================================== */
+
+.more {
+  background: url("i/arrows.png") no-repeat 100% 4px;
+  padding-right: 13px;
+  text-transform: lowercase;
+}
+
+/* 4.3 =Carousel
+====================================================================== */
+
+.js .carousel .item {
+  display: none;
+}
+
+.js .carousel .item.selected {
+  display: block;
+}
+
+.dom .carousel,
+.dom .carousel .wrap {
+  overflow: hidden;
+}
+
+.dom .carousel .item {
+  float: left;
+  display: block;
+}
+
+.carousel-nav {
+  float: left;
+  margin-left: -7px;
+  margin-right: 28px;
+}
+
+.carousel-nav li {
+  float: left;
+}
+
+.carousel-nav li a {
+  display: block;
+  line-height: 16px;
+  padding: 9px 5px;
+}
+
+.carousel-nav li a img {
+  display: block;
+  height: 16px;
+  width: 7px;
+  background: url("i/arrows.png") no-repeat;
+}
+
+.carousel-nav li.prev a img {
+  background-position: 50% -188px;
+}
+
+.carousel-nav li.next a img {
+  background-position: 50% -88px;
+}
+
+.carousel-nav li.disabled a {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.carousel-nav li.selected a {
+  color: #fff;
+  background-color: #0090f6;
+  cursor: default;
+  outline: 0;
+}
+
+.carousel-nav li.selected a:hover,
+.carousel-nav li.selected a:focus {
+  text-decoration: none;
+}
+
+/* 4.4 =Panes
+====================================================================== */
+
+.js .panes .pane {
+  display: none;
+}
+
+.js .panes .pane.selected {
+  display: block;
+}
+
+.panes-nav {
+  margin-left: -9px;
+}
+
+.panes-nav li {
+  float: left;
+  margin-left: 5px;
+}
+
+.panes-nav li:first-child {
+  margin-left: 0;
+}
+
+.panes-nav li a {
+  display: block;
+  line-height: 16px;
+  padding: 9px 12px 9px 9px;
+  background: url("i/arrows.png") no-repeat 100% -79px;
+  border-right: 8px solid #d0d0d0;
+}
+
+.panes-nav li.selected a {
+  background-color: #f3f3f3;
+  border-right-color: #f3f3f3;
+  cursor: default;
+}
+
+.panes-nav li.selected a:hover,
+.panes-nav li.selected a:focus {
+  text-decoration: none;
+}
+
+/* 4.5 =Logo
+====================================================================== */
+
+.logo {
+  text-align: center;
+  padding: 0 10px 10px 0;
+}
+
+.logo li {
+  margin: 25px 0 0 10px;
+  display: inline-block;
+  vertical-align: top;
+  list-style: none;
+}
+
+.logo img {
+  vertical-align: top;
+}
+
+.logo p {
+  margin-top: 5px;
+  font-size: 11px;
+  line-height: 16px;
+  color: #555;
+}
+
+/* Text labels - make it wider and wrap long lines */
+
+.logo-labels li {
+  max-width: 80px;
+}
+
+/* Major (bigger images) - no need for padding (less items = no wrapping), more space */
+
+.logo-major {
+  padding-right: 0;
+}
+
+/* Major - more space for text */
+
+.logo-major li {
+  max-width: 130px;
+}
+
+.logo-major li:first-child {
+  margin-left: 0;
+}
+
+/* Equal - center it vertically for better effect */
+
+.logo-equal li {
+  vertical-align: middle;
+}
+
+/* 5. SECTIONS
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+/* 5.1 =Main Section
+====================================================================== */
+
+.section {
+  margin-bottom: 12px;
+  background-color: #f5f5f5;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.65) 1px 1px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.65) 1px 1px 3px;
+  box-shadow: rgba(0, 0, 0, 0.65) 1px 1px 3px;
+}
+
+.no-box-shadow .section {
+  border: 1px solid #888;
+}
+
+.section > header {
+  background: #006dd3 url("i/section-header.png") repeat-x;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 18px;
+  line-height: 25px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.section > footer {
+  padding: 0 25px;
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.section > footer .more {
+  float: right;
+}
+
+.section-footer > footer {
+  background-color: #cfcfcf;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.section-footer > footer a {
+  color: #333;
+}
+
+.section-footer > footer .more {
+  background-position: 100% -88px;
+}
+
+/* 5.2 =Section Body
+====================================================================== */
+
+.section-body {
+  padding: 12px 25px;
+}
+
+.section-full {
+  padding: 0;
+}
+
+.section table {
+  width: 100%;
+}
+
+.section footer table {
+	width: auto !important;
+}
+.section footer table td{
+	padding: 0px 25px 0px 0px !important;
+}
+
+.section table th {
+  font-weight: bold;
+}
+
+.section col.odd {
+  background-color: rgba(153, 153, 153, 0.08)
+}
+
+.section tr:nth-child(even) td,
+.section thead + tbody tr:nth-child(odd) td {
+  background-color: #dfdfdf;
+  background-color: rgba(204, 204, 204, 0.4);
+}
+
+.section form > table > tbody > tr:nth-child(even) td,
+.section thead + tbody tr:nth-child(even) td {
+  background: none;
+}
+
+.section table th,
+.section table td {
+  padding: 5px 13px;
+}
+
+.section table th:first-child,
+.section table td:first-child {
+  /*padding-left: 25px;*/
+}
+
+/* 5.3 =Single Section
+====================================================================== */
+
+.section-single {
+  padding: 20px 25px;
+}
+
+.section-single > h1 {
+  font-size: 18px;
+}
+
+.section-single > footer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* 5.4 =Section Excerpt
+====================================================================== */
+
+.section-excerpt {
+  background: #cecece url("i/section-honorary-board.png") repeat-x;
+  font-size: 14px;
+}
+
+.section-excerpt > h1 {
+  font-size: 24px;
+  color: #013265;
+  margin-bottom: 20px;
+}
+
+.section-excerpt > footer {
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.section-excerpt > footer .more {
+  color: #333;
+  background-position: 100% -88px;
+}
+
+/* 5.5 =Section Nested
+====================================================================== */
+
+div.section-body > section,
+.section-nested > section {
+  background: url("i/section-nested.png") repeat-x;
+  padding: 12px 20px 10px;
+}
+
+.section-nested > header + section {
+  background: none;
+  padding-top: 10px;
+}
+
+.section-nested > section > h1 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #053d8c;
+}
+
+/* 5.6 =Section Widget
+====================================================================== */
+
+.section-widget {
+  background-color: #fff;
+  padding: 10px 16px;
+}
+
+.facebook-widget {
+  overflow: hidden;
+  width: 270px;
+  margin: 6px auto 6px;
+}
+
+.facebook-widget iframe {
+  margin: -3px 0 -32px -11px;
+}
+
+/* 6. SPECIFIC
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+/* 6.1 =Intro
+====================================================================== */
+
+.intro {
+  position: relative;
+}
+
+.js .intro > footer .more {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.dom .intro > footer {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.dom .intro > footer .more {
+  float: left;
+}
+
+.intro .section-body {
+  padding-right: 250px;
+}
+
+.intro .decoration {
+  position: absolute;
+  right: 36px;
+  bottom: 24px;
+}
+
+.intro .news {
+  min-height: 115px;
+}
+
+.intro .more {
+  text-align: right;
+}
+
+/* 6.2 =Timeline
+====================================================================== */
+
+.timeline {
+  background: #016798 url("i/section-timeline.png") repeat-x;
+  color: #fff;
+}
+
+.timeline a {
+  color: #fff;
+}
+
+.timeline > h1 {
+  width: 100px;
+  padding-right: 5px;
+  float: left;
+}
+
+.timeline .current-day {
+  float: right;
+  width: 170px;
+  padding-left: 41px;
+  font-size: 17px;
+}
+
+.timeline .current-day li,
+.timeline .current-day li.current a,
+.timeline .current-day > span span {
+  background-image: url("i/timeline-day.png");
+  background-repeat: no-repeat;
+}
+
+.timeline .current-day > span,
+.timeline .current-day li {
+  float: left;
+  text-align: center;
+  background-color: #fff;
+}
+
+.timeline .current-day > span,
+.timeline .current-day li a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.timeline .current-day > span,
+.timeline .current-day li a {
+  color: #027cb8;
+}
+
+.timeline .current-day li.current a {
+  background-position: -80px 0;
+}
+
+.timeline .current-day > span span {
+  background-position: -40px 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.timeline .current-day > span {
+  position: relative;
+  font-size: 12px;
+  margin-left: -41px;
+}
+
+.timeline .current-day ul {
+  float: left;
+  background: url("i/timeline-days.png") repeat-x 0 11px;
+}
+
+.timeline .current-day li {
+  margin-left: 5px;
+}
+
+.timeline .current-day li:first-child {
+  margin-left: 0;
+}
+
+.timeline > p {
+  margin-left: 105px;
+  margin-right: 216px;
+}
+
+.timeline > p b {
+  display: block;
+}
+
+.timeline > footer {
+  clear: both;
+  margin: 20px -25px -10px;
+  padding: 10px 25px 0;
+  background: url("i/timeline-separator.png") repeat-x;
+}
+
+.timeline > footer a {
+  float: left;
+  margin-right: 20px;
+  text-decoration: underline;
+}
+
+.timeline > footer a + a + a {
+  float: right;
+  margin-right: 0;
+}
+
+/* 6.3 =Recommendations
+====================================================================== */
+
+.recommendations > h1 {
+  color: #04398a;
+}
+
+.recommendations .logo li {
+  margin-left: 18px;
+}
+
+/* 6.5 =Top 5
+====================================================================== */
+
+.top-5 .pane {
+  margin-bottom: 10px;
+}
+
+.js .top-5 > footer .more {
+  float: right;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.dom .top-5 > footer {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* 6.6 =Recent Activity
+====================================================================== */
+
+.table-recent-activity > footer {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* 6.7 =Sponsors and Affiliates
+====================================================================== */
+
+.sponsors-and-affiliates {
+  background: #fdfdfd url("i/section-sponsors.png") repeat-x 0 100%;
+}
+
+/* 6.8 =Section adjustments
+====================================================================== */
+
+.columns-main .secondary .section > header {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* 7. FOOTER
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+
+.info {
+  background: #084398 url("i/footer.png") repeat-x 0 100%;
+}
+
+.info a {
+  text-decoration: none;
+}
+
+.info a:hover,
+.info a:focus {
+  text-decoration: underline;
+}
+
+.info > section {
+  background-color: #dad7d2;
+  color: #000;
+}
+
+.info > section > div {
+  width: 980px;
+  margin: 0 auto;
+  padding: 25px 0 50px;
+  background-color: #dcd9d4;
+}
+
+.info > section h1,
+.info > section p {
+  float: left;
+  width: 235px;
+  padding-right: 5px;
+}
+
+.info > section h1 {
+  font-size: 14px;
+  font-weight: bold;
+  text-indent: 40px;
+}
+
+.info > section p {
+  line-height: 14px;
+}
+
+.info > section a {
+  color: #333;
+}
+
+.info > small {
+  display: block;
+  width: 900px;
+  padding: 17px 40px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.info > small a {
+  color: #fff;
+}
+
+/* 8. NASZE
+•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••• */
+.more-links a {
+	display: block;
+	background: url("i/arrow-right-dim.png") no-repeat 100% 3px;
+	padding-right: 16px;
+}
+.more-links a.force-selected,
+.more-links a.selected {
+	background: url("i/arrow-right.png") no-repeat 100% 3px;
+	font-weight: bold;
+}
+
+ul.level2{
+	padding-left: 1em;
+}
+ul.level3{
+	padding-left: 1em;
+}
+
+.main-menu{
+	background: #fdfdfd;
+}
+
+form input[type="text"],
+form input[type="password"] {
+	border: 2px solid #DFDFDF;
+	height: 24px;
+	padding: 0 5px;
+	background: #fff;
+	color: #333;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+	-webkit-box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+	box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+	/* prevent background spill in WebKit when using border-radius */
+	-webkit-background-clip: padding-box;
+	outline: 0px;
+}
+
+form input[readonly] {
+	height: 24px;
+	line-height: 24px;
+	padding: 0 5px;
+	background: #ccc;
+	color: #333;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-ms-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+	-webkit-box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+	box-shadow: inset rgba(0, 0, 0, 0.75) 1px 1px 2px;
+	/* prevent background spill in WebKit when using border-radius */
+	-webkit-background-clip: padding-box;
+}
+
+.messages ul li{
+	background: white;
+	padding: 0.5em;
+	border-bottom: 0.5em;
+}
+.messages .info{
+	
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{
+	 margin-bottom: 8px; 
+}
+.ui-timepicker-div dl{ 
+	text-align: left; 
+}
+.ui-timepicker-div dl dt{ 
+	height: 25px; 
+}
+.ui-timepicker-div dl dd{ 
+	margin: -25px 0 10px 65px;
+}
+.ui-timepicker-div td { 
+	font-size: 90%; 
+}
+
+/* form steps header */
+.active-step-header {
+  background: #006dd3 url("../img/form/active-step-header.png") repeat-x;
+  color: #fff;
+  padding: 4px 18px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: bold;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 2px;
+}
+
+.inactive-step-header {
+  background: #696969 url("../img/form/inactive-step-header.png") repeat-x;
+  color: #fff;
+  padding: 4px 25px;
+  font-size: 12px;
+  line-height: 18px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 2px;
+}
+
+.form-steps-body {
+  background: #e7e7e7 url("../img/form/form-steps-body.png") repeat-x;
+  padding: 4px 25px;
+  font-size: 12px;
+  line-height: 18px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 2px;
+}
+
+
+.form-steps-table {
+	padding: 0px;
+}
+
+.form-steps-table tr {
+	padding: 0px;
+}
+
+.form-steps-table tr td {
+	padding: 0px;
+}
+
+.form-steps-table tr:first-child {
+	padding: 0px;
+}
+
+.form-buttons {
+	text-align: right;
+	padding: 10px;
+	height: 25px;
+}
+.form-buttons > button{
+	margin-left: 10px;
+}
+	
+.form-steps-table td:first-child {
+	padding: 0px;
+}
+
+ul.errorlist{
+	margin-bottom: 5px;
+}
+
+ul.errorlist li {	
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 0px 0px;
+  padding: 2px 16px 2px 24px;
+  background: #F99 url("../img/messages/error_mini.png") no-repeat 4px;
+  border: 1px solid red;
+  color: black;
+  display: inline-block;
+}
+
+.contest-created-body {
+	text-align: center;	
+	font-size: 14px;
+	line-height: 32px;
+}
+
+.contest-created-info {
+	text-align: left;	
+	font-size: 13px;
+	line-height: 19px;
+}
+
+.news-paginator {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.news-info, .contest-problem-info {
+	font-size: 10px;
+	padding: 2px 25px;
+}
+
+.news-info-left {
+	float: left;
+}
+
+.news-info-right, .contest-problem-info-right {
+	float: right;
+	font-weight: bold;
+}
+
+col.contest-problems-s { width: 50px; }
+col.contest-problems-s2 { width: 10px; padding: 0px;}
+col.contest-problems-name {}
+
+col.contest-edit-problems-problem-id{}
+col.contest-edit-problems-problem-name{}
+col.contest-edit-problems-problem-problemset{}
+col.contest-edit-problems-problem-date{}
+col.contest-edit-problems-problem-visibility{}
+col.contest-edit-problems-problem-edit{ width: 50px; }
+col.contest-edit-problems-problem-updown{ width: 50px; }
+col.contest-edit-problems-problem-delete{ width: 25px; }
+
+col.contest-edit-problems-problemset-name {}
+col.contest-edit-problems-problemset-link {}
+col.contest-edit-problems-problemset-up { width: 25px; }
+col.contest-edit-problems-problemset-down { width: 25px; }
+col.contest-edit-problems-problemset-del { width: 25px; }
+
+col.col-result {
+	width: 150px;	
+}
+
+col.col-position {
+	width: 80px;	
+}
+
+.no-background{ background: none !important; }
+
+td.profile-data {
+	font-weight: bold;
+}
+
+
+.required-field label:after  {
+	content: " *";
+	color: red;
+	font-weight: bold;
+}
+
+.message-box
+{
+	padding-left: 58px;
+	font-weight: bold;
+}
+
+.message-info {
+	color: blue;
+	background: url("../img/messages/info.png") no-repeat 16px;
+}
+
+.message-success 
+{	
+	background: url("../img/messages/success.png") no-repeat 16px;
+	color: green;
+}
+
+.message-warning 
+{	
+	background: url("../img/messages/warning.png") no-repeat 16px;
+	color: #880;
+}
+
+.message-error {
+	background: url("../img/messages/error.png") no-repeat 16px;
+	color: red;	
+}
+
+.message-body {
+	float: left;
+	width: 95%;
+}
+
+.message-close-button {
+	float: right;
+}
+
+.news-operations {
+	text-align: right;	
+}
+
+.collapsed-filter {
+	height: 0px;
+	visibility: hidden;	
+}
+
+.rounded-bottom{
+  -webkit-border-bottom-left-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.filter-collapse-button {
+	float: right;
+}
+
+.filter-section-title {
+	float: left;
+}
+
+.bold {
+	font-weight: bold;	
+}
+
+.submission-form {
+	width: 100%;
+	height: 350px;
+}
+
+.submission-select-lang-div {
+	float: left;
+}
+
+.submission-upload-div {
+	float: right;	
+}
+
+.clearing-div {
+	clear: both;
+}
+
+.submission-submit-button {
+	text-align: right;
+	margin-top: 20px;
+}
+
+.submission-past-code-div {
+	margin-bottom: 10px;	
+}
+
+#EditAreaArroundInfos_id_source {
+	text-align: right;	
+}
+
+div#problem-submit-box-body ul.errorlist {
+	float: none;
+	color: green;	
+	
+}
+
+
+.collapsed-invitation-panel, .collapsed-panel{
+	height: 0px;
+	width: 0px;
+	visibility: hidden; 
+}
+
+.not-displayed {
+	display: none;	
+}
+
+div.invite-students a#collapse-invitation-div {
+	color: white;	
+}
+
+.banned-student {
+	opacity: 0.5;
+	color: #400;
+}
+
+img.inline-ajax-indicator {
+	margin-bottom: -4px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+
+img.button-replace-ajax-indicator {	
+	margin-left: 24px;
+	margin-right: 24px;
+	padding-bottom: 5px;
+}
+
+img.button-aligned-ajax-indicator {	
+	margin-left: 12px;
+	margin-right: 24px;
+	padding-bottom: 5px;
+}
+
+.ui-multiselect { padding:2px 0 2px 4px; text-align:left }
+.ui-multiselect span.ui-icon { float:right }
+.ui-multiselect-single input { position:absolute !important; top: auto !important; left:-9999px; }
+.ui-multiselect-single label { padding:5px !important }
+
+.ui-multiselect-header { margin-bottom:3px; padding:3px 0 3px 4px }
+.ui-multiselect-header ul { font-size:0.9em }
+.ui-multiselect-header ul li { float:left; padding:0 10px 0 0 }
+.ui-multiselect-header a { text-decoration:none }
+.ui-multiselect-header a:hover { text-decoration:underline }
+.ui-multiselect-header span.ui-icon { float:left }
+.ui-multiselect-header li.ui-multiselect-close { float:right; text-align:right; padding-right:0 }
+
+.ui-multiselect-menu { display:none; padding:3px; position:absolute; z-index:10000 }
+.ui-multiselect-checkboxes { position:relative /* fixes bug in IE6/7 */; overflow-y:scroll; max-height: 256px !important }
+.ui-multiselect-checkboxes label { cursor:default; display:block; border:1px solid transparent; padding:3px 1px }
+.ui-multiselect-checkboxes label input { position:relative; top:1px }
+.ui-multiselect-checkboxes li { clear:both; font-size:0.9em; padding-right:3px }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label { text-align:center; font-weight:bold; border-bottom:1px solid }
+.ui-multiselect-checkboxes li.ui-multiselect-optgroup-label a { display:block; padding:3px; margin:1px 0; text-decoration:none }
+
+/* remove label borders in IE6 because IE6 does not support transparency */
+* html .ui-multiselect-checkboxes label { border:none }
+
+.ui-multiselect-hasfilter ul { position:relative; top:2px }
+.ui-multiselect-filter { float:left; margin-right:10px; font-size:11px }
+.ui-multiselect-filter input { width:100px; font-size:10px; margin-left:5px; height:15px; padding:2px; border:1px solid #292929; -webkit-appearance:textfield; -webkit-box-sizing:content-box; }
+
+/* tablesorter */
+table.tablesorter thead tr .header {
+	background-image: url(../img/tablesorter/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../img/tablesorter/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../img/tablesorter/desc.gif);
+}
+
+.problem-info{
+	margin-bottom: 2em;
+	border-bottom: 1px solid #ccc;
+}
+
+.problems-query {
+	overflow-y: auto;
+	max-height: 500px;
+}
+
+.edit-section-link {
+	background: white; /*url(../img/proceed.png) no-repeat right;*/
+  	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+  	border: 1px solid #006dd3;
+	height: 48px;
+	padding: 8px;
+	padding-right: 150px;
+	margin: 18px;
+}
+
+.edit-section-link h1 {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.edit-section-link p {
+	font-style: italic;
+}
+
+.acc-mark {
+	margin-bottom: -2px;	
+}
+
+tr .trait-icon {
+	margin-top: -4px;
+	margin-bottom: -4px;	
+}
+
+table tr td.trait-icon-cell, table tr th.trait-icon-cell {
+	padding-left: 0px;
+	padding-right: 0px;	
+}
+
+/* Style dla tresci zadan i stron statycznych tworzonych przez TinyMCE */
+.problem-body p, .news-body p{
+	text-align: justify;
+	display: block;
+	margin: 10px 0px;
+}
+
+.problem-body h1, .problem-body h2, .problem-body h3, .problem-body h4, .problem-body h5, .problem-body h6,
+.page-body h1, .page-body h2, .page-body h3, .page-body h4, .page-body h5, .page-body h6,
+.news-body h1, .news-body h2, .news-body h3, .news-body h4, .news-body h5, .news-body h6 {
+	margin: 12px 0px;
+    font-weight: bold;
+}
+
+.problem-body h1 {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.problem-body h2 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.problem-body h3, .page-body h3, .news-body h3 {
+	font-size: 1.17em;
+}
+
+.problem-body h4, .page-body h4, .news-body h4 {
+    font-size: 1em;
+}
+.problem-body h5, .page-body h5, .news-body h5 {
+    font-size: 0.83em;
+}
+.problem-body h6, .page-body h6, .news-body h6 {
+    font-size: 0.75em;
+}
+
+.problem-body pre, .page-body pre, .news-body pre {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+	background: #faf8f0;
+	padding: 10px;
+	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+}
+
+.problem-body ul, .page-body ul, .news-body ul {
+	margin: 10px 0px;
+	padding-left: 40px;
+	list-style-position: outside;
+	list-style-type: disc;
+}
+
+/* Style dla wynikow */
+.result-X{		color: #555;	}
+.result-15{		color: green; font-weight: bold;	}
+.result-20{		color: red; }
+
+/* Style dla kodu submission */
+.highlighttable{
+	width: 100%;
+}
+
+
+.points-panel {
+	background: url(../img/blackboard.png) no-repeat right, url(../img/rating-background.png) repeat-y right;
+}
+
+.disqualify-panel {
+	background: url(../img/disqualified.png) no-repeat right, url(../img/rating-background.png) repeat-y right;
+}
+
+.comment-panel {
+	background: url(../img/comment.png) no-repeat right, url(../img/rating-background.png) repeat-y right;
+}
+
+.disqualify-info-panel {
+	background: url(../img/disqualified_32.png) no-repeat right, url(../img/rating-background.png) repeat-y right;
+}
+
+.rating-panel, .ex-rating-panel, .higher-rating-panel, .lower-rating-panel {
+  	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+  	border: 1px solid white;
+	padding: 14px;
+	padding-right: 200px;
+	margin: 8px 0px;
+	height: 52px;
+}
+
+.ex-rating-panel {
+	height: 122px;
+}
+
+.higher-rating-panel {
+	height: 82px;
+}
+
+.lower-rating-panel {
+	height: 20px;
+}
+
+.rating-panel p, .ex-rating-panel p, .higher-rating-panel p, .lower-rating-panel p {
+	font-style: italic;
+}
+
+.automatic-points-marking-form {
+	 color: blue; 
+}
+
+.problems-find-panel {
+	float: left;
+	width: 680px;
+	margin-bottom: 15px;
+	overflow: auto;
+}
+
+.preview-panel {
+	float: left;
+	width: 560px;
+	height: 450px;
+	overflow: auto;	
+}
+
+/* tabele w dialogach */
+.dialog table {
+  width: 100%;
+}
+
+.dialog table th {
+  font-weight: bold;
+}
+
+.dialog col.odd {
+  background-color: rgba(153, 153, 153, 0.08)
+}
+
+.dialog tr:nth-child(even) td,
+.dialog thead + tbody tr:nth-child(odd) td {
+  background-color: #dfdfdf;
+  background-color: rgba(204, 204, 204, 0.4);
+}
+
+.dialog form tbody tr:nth-child(even) td,
+.dialog thead + tbody tr:nth-child(even) td {
+  background: none;
+}
+
+.dialog table th,
+.dialog table td {
+  padding: 5px 13px;
+}
+
+.dialog table th:first-child,
+.dialog table td:first-child {
+  padding-left: 25px;
+}
+
+.news-body ol, .page-body ol {
+	list-style-type: decimal;
+	list-style-position: outside; 
+}
+
+.news-body h2, .page-body h2 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.news-body h1, .page-body h1 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 26px;
+}
+
+.news-form table td:first-child, .news-form table td {
+  padding: 0px;
+}
+
+#add-page-wnd {
+	width: 650px;
+}
+
+form input[type="text"].example { 
+	color: #aaa;
+}
+
+table.attachments-table td, table.attachments-table th, .section table.attachments-table thead th:first-child {
+	margin: 0px;
+	padding-left: 0px;
+	text-align: left;
+}
+
+footer.attachment-footer {
+	background: #CFCFCF url(../img/clip.png) no-repeat right 4px;	
+}
+
+#files {
+	border-top: 1px solid black;
+}
+
+button.upload-button  {
+	vertical-align: bottom;		
+}
+
+#upload-table {
+	width: auto;	
+}
+
+#link-table {
+	width: auto;	
+}
+
+td.title-cell input {
+	width: 350px;	
+}
+
+tr td.form-cell {
+	padding-bottom: 8px;
+}
+
+table.select-time-interval td:FIRST-CHILD {
+	text-align: right;
+}
+
+.form-field-panel {
+  	-webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  	border-radius: 5px;
+  	border: 1px solid white;
+	padding: 2px;
+	margin: 4px 0px;
+}
+
+
+
+.section table.unit-table {
+	margin-top: 10px;	
+}
+
+.section table.unit-table tr:nth-child(odd) td.page {
+	background: url(../img/document.png) no-repeat 19px center;
+	height: 17px;
+	vertical-align: middle;
+	
+}
+
+.section table.unit-table tr:nth-child(even) td.page {
+	background: url(../img/document.png) no-repeat 19px center;
+  	background-color: rgba(204, 204, 204, 0.4);
+  	height: 17px;
+  	vertical-align: middle;
+}
+
+.section table.unit-table tr.problem td {
+	background-color: rgba(204, 204, 204, 0.4);
+	height: 17px;
+	vertical-align: middle;
+}
+
+
+
+.section table.unit-edit-table tr:nth-child(even) td.page {
+	background: url(../img/document.png) no-repeat 1px center;
+	height: 24px;
+	vertical-align: middle;
+}
+
+.section table.unit-edit-table tr:nth-child(odd) td.page {
+	background: url(../img/document.png) no-repeat 1px center;
+  	background-color: rgba(204, 204, 204, 0.4);
+  	height: 24px;
+  	vertical-align: middle;
+}
+
+.section table.plain-table tr:nth-child(odd) td {
+	background-color: transparent;
+	height: 17px;
+	vertical-align: middle;
+}
+
+.section table.plain-table tr:nth-child(even) td {
+	background-color: transparent;
+  	height: 17px;
+  	vertical-align: middle;
+}
+
+.section table.plain-table tr td {
+	padding: 2px 4px;
+}
+
+.section table.plain-table th:first-child, .section table.plain-table td:first-child {
+	background-color: transparent;
+	height: 17px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 0px;
+}
+
+.section table tbody tr.transparent-row td{
+	background-color: rgba(204, 204, 204, 0.4);
+}
+
+
+.calendar-panel {
+	background: url(../img/calendar.png) no-repeat 360px 25px;
+}
+
+.gradient-panel {
+	background: url(../img/rating-background.png) repeat-y right;
+}
+
+.unit-edit-panel {
+	width: 460px;	
+}
+
+div.errors-left-panel ul.errorlist {
+	float: left;
+}
+
+td.unit-title-cell input {
+	width: 250px;	
+}
+
+.advanced-options-panel {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;	
+}
+
+#advanced-options-panel input {
+	margin-top: 4px;	
+}
+
+h1.edit-header {
+	font-weight: bold;
+	font-size: 16px;
+	margin-bottom: 10px;	
+}
+
+.legend {
+	float:left;
+	border-top: 1px solid black;
+	margin-top: 12px;	
+}
+
+.lesson-legend {
+	border-top: 1px solid rgba(204, 204, 204, 0.4);
+	margin: 12px 25px 0px 20px;
+	width: 650px;
+	padding-top: 12px;
+}
+
+table.unit-edit-table tr td, table.unit-edit-table tr td div {
+	vertical-align: middle;	
+}
+
+table tr td.right-aligned {
+	text-align: right;	
+}
+
+table.form-table tr td {
+	padding-top: 8px;
+}
+
+#contest-problem-edit-panel {
+	width: 600px;	
+}
+
+.hidden-help {
+	height: 26px;
+	overflow: hidden;	
+}
+
+#help-panel {
+	float: left;
+	width: 480px;
+	text-align: justify;	
+}
+
+.python-version-panel {
+	position: fixed;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: 0px;
+	color: #333;
+	padding: 4px;
+	text-align: center;
+	width: 100%;
+	background: #ccc;
+}
+
+.advertisement-top {
+	width: 948px;
+}
+
+.submissions-counter-low {
+	color: green;	
+}
+.submissions-counter-medium {
+	color: #ffa000;
+}
+.submissions-counter-high {
+	color: red;
+}
+
+.section > header.tab {
+  background: #004db3 url("i/section-header.png") repeat-x;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 18px;
+  line-height: 21px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  float:left; 
+  margin-right: 4px;
+  margin-top: 4px; 
+  margin-left: 4px;
+}
+
+.section > header.tab a {
+	color: #fff;
+}
+.section > header.tab a:hover {
+	text-decoration: none;
+}
+
+.section > header.inactive-tab a, .section > header.inactive-tab h1 {
+	color: #c5c5c5;	
+}
+
+.section > header.inactive-tab {
+	opacity: 0.5;
+}
+
+.section > header.inactive-tab a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.section > header.tabs-background {
+  background: #006dd3 ;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 18px;
+  line-height: 25px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+section table tbody tr td.your-solution-separator {
+	padding-top: 24px;
+}
+
+;	
+}
+
+.section > header.inactive-tab a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.section > header.tabs-background {
+  background: #006dd3 ;
+  color: #fff;
+  padding: 12px 25px;
+  font-size: 18px;
+  line-height: 25px;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+section table tbody tr:nth-child(even) td.your-solution-separator,
+section table tbody tr:nth-child(odd) td.your-solution-separator {
+	padding-top: 24px;
+	font-weight: bold;
+	background-color: rgb(245, 245, 245);
+}
+
+section table tbody tr.your-solution {
+	font-weight: bold;
+	background-color: rgba(194, 254, 194, 0.4);	
+}
+
+section table tbody tr.selected-submission {
+	font-weight: bold;
+	background-color: rgba(194, 254, 194, 0.4);	
+}
+
+section table tbody tr.selected-submission-red {
+	font-weight: bold;
+	background-color: rgba(254, 194, 194, 0.4);	
+}
+
+section table tbody tr.selected-submission-orange {
+	font-weight: bold;
+	background-color: rgba(254, 254, 100, 0.4);	
+}
+
+div.ranking-filter {
+	margin-bottom: 16px;
+	margin-left: 25px;
+	margin-top:10px;
+	font-weight: bold;
+}
+div.ranking-filter > form > label{
+	position: absolute;
+}
+div.ranking-filter > form > select,
+div.ranking-filter > form > ul{
+	display: block;
+	margin-left: 150px;
+}
+div.ranking-filter > form > ul > li{
+	display: inline-block;
+}
+
+div.ranking-export{
+	margin-left: 25px;
+	margin-bottom: 16px;
+}
+
+table.ranking-table {
+	width: 100%;
+}
+
+/* Dedykowane poprawki dla formularzy */
+
+.main .primary form > button{
+	float: right;
+	margin-top: 10px;
+	margin-right: 75px;
+}
+.main .primary form{
+	/*margin-bottom: 40px;*/
+}
+
+#form-register input[type=text],
+#form-register input[type=password],
+#form-login input[type=text],
+#form-login input[type=password]{
+	width: 316px;
+}
+#form-contest-news input[name=title]{
+	width: 560px;
+}
+#page_form input[name=edit-title]{
+	width: 500px;
+}
+
+table.download-table thead th, table.download-table tbody td {
+	text-align: center;	
+}
+
+p.instruction {
+	text-align: justify;	
+}
+
+pre.inline {
+	display: inline;
+}
+
+.tooltip-body {
+	padding: 5px;	
+}
+
+.tooltip-body h1 {
+	font-size: 16px;
+	font-weight: bold;
+	padding: 10px 0px;
+}
+
+.tooltip-body h2 {
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px 0px;	
+}
+
+.tooltip-body h3 {
+	font-size: 12px;
+	padding: 6px 0px;
+	font-weight: bold;	
+}
+
+.tooltip-body ul {
+	margin: 6px 0px;
+	padding-left: 10px;
+	list-style-position: inside;
+	list-style-type: disc;
+}
+
+.tooltip-body pre {
+	display: inline;
+}
+
+.tooltip-body p {
+	text-align: justify;
+}
+
+.sign-in .lost-password {
+	float: left;
+	margin-top: 8px;	
+}
+
+.ace_content {
+	background-color: white;	
+}
+
+div.qtip-wrapper {
+	/* offset left, top, thickness, color with alpha */
+	-webkit-box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);
+	box-shadow: 10px 15px 5px rgba(0, 0, 0, 0.5);  
+}
+
+.carousel-nav li.paginator-spacer {
+	display: block;
+	line-height: 16px;
+	padding: 9px 5px;
+}
+
+.carousel-nav li.prev-longjump a img {
+	float: left;
+}
+
+.carousel-nav li.next-longjump a img {
+	float: right;
+}
+
+.carousel-nav li.prev-longjump a, .carousel-nav li.next-longjump a {
+	font-weight: bold;
+}
+
+#status-desc {
+	margin: 10px 0 0px;
+	padding: 0;
+}
+#status-desc li {
+	padding: 3px 0 6px 55px;
+	margin: 10px 0 10px;
+	list-style: none;
+	text-align:justify;
+}
+#status-desc h3 {
+	font: bold 130%/100% Arial, Helvetica, sans-serif;
+	margin: 3px 0 5px;
+	color: #666;
+}
+#status-desc .item {
+	background: url(../img/question-mark.png) no-repeat;
+}
+#embeded-desc{
+	margin: 5px 0 0 0;
+}
+#embeded-desc li {
+	list-style: disc;
+	padding: 0px 0 0px;
+	margin: 0 0 5px 15px;
+}
+
+.bolded {
+	font-weight: bold;
+}
+
+.hidden {
+	display: none; 
+}
+
+.italic {
+	font-style: italic;
+}
+
+
+/* Panel do oceniania */
+.marking-header-cell{
+	overflow:hidden; 
+	width: 70px;
+}
+
+.marking-cell{
+	overflow:hidden; 
+	width: 70px; 
+	height: 51px;
+}
+
+.marking-panel{
+	overflow: scroll;
+	position: relative;
+}
+
+.marking-firstcol-panel{
+	overflow: hidden;
+	width: 150px;
+}
+
+.marking-firstcol-cell{
+	overflow:hidden; 
+	height: 51px;
+}
+
+.marking-header-panel{
+	overflow: hidden;
+}
+
+.hidden-problem{
+	opacity: 0.5;
+}
+
+.marking-cell-green {
+	background-color: rgba(194, 254, 194, 0.4);	
+}
+
+
+/* Formularz dla testcase'ów */
+.test-table-backgound{
+	background: url(../img/rating-background.png) repeat-y right;
+}
+.test-table-center{
+	text-align: center;
+}
+.test-table-border{
+	border: 1px solid;
+}
+.test-table-padding{
+	padding: 10px;
+}
+
+/* Poprawki styli edytora Ace, aby nie kolidował z innymi elementami strony */
+#problem-submit-box-body .ace_gutter {
+    z-index: 0;
+}
+
+.ace-toggle-panel{
+    float: right;
+    display: none;
+}
+
+.ace-toggle-panel a {
+    text-decoration: none;
+}
